@@ -1,0 +1,4 @@
+test_login001:
+   username: "hn_ggcs001"
+   pwd: "Abcd1234"
+   expected: "您好，hn_ggcs00"

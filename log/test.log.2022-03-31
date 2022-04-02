@@ -1,0 +1,15 @@
+2022-03-31 18:09:37,279 INFO [base.py(__init__:23)] - 正在初始化浏览器：<selenium.webdriver.chrome.webdriver.WebDriver (session="4e9ba5f279fe2f36c4d743d2f3b8f7a0")>
+2022-03-31 18:09:37,360 INFO [page_login.py(page_login_success:52)] - 正在进行登录操作，用户名：hn_ggcs001，密码：Abcd1234
+2022-03-31 18:09:37,360 INFO [base.py(base_find:38)] - 正在查找元素：('css selector', "input[placeholder='用户名']")
+2022-03-31 18:09:37,375 INFO [base.py(base_input:50)] - 正在对：('css selector', "input[placeholder='用户名']")进行清空操作！
+2022-03-31 18:09:37,413 INFO [base.py(base_input:53)] - 正在输入：hn_ggcs001
+2022-03-31 18:09:37,508 INFO [base.py(base_find:38)] - 正在查找元素：('css selector', "input[placeholder='密码']")
+2022-03-31 18:09:37,522 INFO [base.py(base_input:50)] - 正在对：('css selector', "input[placeholder='密码']")进行清空操作！
+2022-03-31 18:09:37,560 INFO [base.py(base_input:53)] - 正在输入：Abcd1234
+2022-03-31 18:09:39,653 INFO [base.py(base_click:59)] - 正在点击：('xpath', "//*[@id='app']/div/div[1]/div[1]/div/div[2]/button/span")
+2022-03-31 18:09:39,653 INFO [base.py(base_find:38)] - 正在查找元素：('xpath', "//*[@id='app']/div/div[1]/div[1]/div/div[2]/button/span")
+2022-03-31 18:09:42,717 INFO [base.py(__init__:23)] - 正在初始化浏览器：<selenium.webdriver.chrome.webdriver.WebDriver (session="4e9ba5f279fe2f36c4d743d2f3b8f7a0")>
+2022-03-31 18:09:42,766 INFO [base.py(base_click:59)] - 正在点击：('xpath', "//*[@id='app']/div/div[3]/div/div")
+2022-03-31 18:09:42,766 INFO [base.py(base_find:38)] - 正在查找元素：('xpath', "//*[@id='app']/div/div[3]/div/div")
+2022-03-31 18:09:44,875 INFO [base.py(base_click:59)] - 正在点击：('xpath', "//*[@id='app']/div/div[5]/div[2]/div/div/div/ul/li/p")
+2022-03-31 18:09:44,875 INFO [base.py(base_find:38)] - 正在查找元素：('xpath', "//*[@id='app']/div/div[5]/div[2]/div/div/div/ul/li/p")

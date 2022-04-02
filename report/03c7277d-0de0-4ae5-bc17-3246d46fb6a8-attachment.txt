@@ -1,0 +1,15 @@
+[32mINFO    [0m root:base.py:23 正在初始化浏览器：<selenium.webdriver.chrome.webdriver.WebDriver (session="9cb41097b3c35ec7b9aeb96b9652f7a6")>
+[32mINFO    [0m root:page_login.py:52 正在进行登录操作，用户名：hn_ggcs001，密码：Abcd1234
+[32mINFO    [0m root:base.py:38 正在查找元素：('css selector', "input[placeholder='用户名']")
+[32mINFO    [0m root:base.py:50 正在对：('css selector', "input[placeholder='用户名']")进行清空操作！
+[32mINFO    [0m root:base.py:53 正在输入：hn_ggcs001
+[32mINFO    [0m root:base.py:38 正在查找元素：('css selector', "input[placeholder='密码']")
+[32mINFO    [0m root:base.py:50 正在对：('css selector', "input[placeholder='密码']")进行清空操作！
+[32mINFO    [0m root:base.py:53 正在输入：Abcd1234
+[32mINFO    [0m root:base.py:59 正在点击：('xpath', "//*[@id='app']/div/div[1]/div[1]/div/div[2]/button/span")
+[32mINFO    [0m root:base.py:38 正在查找元素：('xpath', "//*[@id='app']/div/div[1]/div[1]/div/div[2]/button/span")
+[32mINFO    [0m root:base.py:23 正在初始化浏览器：<selenium.webdriver.chrome.webdriver.WebDriver (session="9cb41097b3c35ec7b9aeb96b9652f7a6")>
+[32mINFO    [0m root:base.py:59 正在点击：('xpath', "//*[@id='app']/div/div[3]/div/div")
+[32mINFO    [0m root:base.py:38 正在查找元素：('xpath', "//*[@id='app']/div/div[3]/div/div")
+[32mINFO    [0m root:base.py:59 正在点击：('xpath', "//*[@id='app']/div/div[5]/div[2]/div/div/div/ul/li/p")
+[32mINFO    [0m root:base.py:38 正在查找元素：('xpath', "//*[@id='app']/div/div[5]/div[2]/div/div/div/ul/li/p")
