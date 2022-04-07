@@ -17,6 +17,7 @@ from tools.read_file import read_file
 import page
 log = GetLogger.get_log()
 
+
 class TestLogin:
     # 初始化
     def setup_class(self):

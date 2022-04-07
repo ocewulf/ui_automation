@@ -23,9 +23,6 @@ class Base:
         log.info("正在初始化浏览器：{}".format(driver))
         """浏览器初始化"""
         self.driver = driver
-        # driver = webdriver.Chrome()
-        # driver.maximize_window()
-        # driver.implicitly_wait(5)
 
     # 查找方法
     def base_find(self, loc, timeout=30, poll=0.5):
@@ -71,7 +68,7 @@ class Base:
         self.driver.get_screenshot_as_file("../image/error.png")
         log.error("验证失败，正在将错误截图写入报告！")
         # 调用截图写入
-        sleep(2)
+        sleep(1)
         self.__base_write_img()
 
     # 截图写入报告(私有)

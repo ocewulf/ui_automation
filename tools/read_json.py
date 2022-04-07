@@ -14,7 +14,7 @@ import json
 # print(type(dict02))
 # print(dict02)
 
-with open('test.json', 'r', encoding='utf-8') as file02:
-    data = json.load(file02)
+with open('../data/test.json', 'r', encoding='utf-8') as file:
+    data = json.load(file)
     print(data)
     print(type(data))

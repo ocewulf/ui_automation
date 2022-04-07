@@ -7,7 +7,8 @@
 """
 import os
 
-
+# 返回脚本的路径
 BASE_PATH = os.path.dirname(__file__) + os.sep
+# 返回脚本的绝对路径
 # BASE_PATH = os.path.abspath(__file__)
 print(BASE_PATH)

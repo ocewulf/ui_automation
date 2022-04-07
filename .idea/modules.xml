@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../api_automation/.idea/api_automation.iml" filepath="$PROJECT_DIR$/../api_automation/.idea/api_automation.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/ui_automation.iml" filepath="$PROJECT_DIR$/.idea/ui_automation.iml" />
     </modules>
   </component>
