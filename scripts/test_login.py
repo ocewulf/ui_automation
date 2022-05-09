@@ -32,6 +32,7 @@ class TestLogin:
         GetDriver.quit_web_driver()
 
     @pytest.mark.parametrize("username,pwd,expected", read_file("login.yaml"))
+    @pytest.mark.run(order=1)
     def test_login(self, username, pwd, expected):
         # 调用登录业务方法
         self.pl.page_login(username, pwd)

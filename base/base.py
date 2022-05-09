@@ -10,6 +10,7 @@
 from time import sleep
 
 import allure
+from selenium.webdriver import ActionChains
 from selenium.webdriver.support.wait import WebDriverWait
 
 from tools.get_log import GetLogger

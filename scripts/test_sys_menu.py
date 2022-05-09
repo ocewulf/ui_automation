@@ -7,6 +7,8 @@
 """
 from time import sleep
 
+import pytest
+
 from page.page_in import PageIn
 from tools.get_driver import GetDriver
 import page
@@ -32,6 +34,7 @@ class TestSysMenu:
         GetDriver().quit_web_driver()
 
     # 进入菜单页面
+    @pytest.mark.run(order=2)
     def test_access_menu(self):
         # 调用打开菜单页面方法
         self.menu.page_sys_menu()

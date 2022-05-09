@@ -28,6 +28,7 @@ class PageSysMenu(Base):
 
     # 组合业务方法
     def page_sys_menu(self):
+        sleep(2)
         self.page_menu_click()
         sleep(2)
         self.page_2nd_menu_click()
