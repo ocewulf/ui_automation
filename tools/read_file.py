@@ -24,4 +24,5 @@ def read_file(filename):
 
 
 if __name__ == '__main__':
-    print(read_file("hotel_basic_survy.yaml"))
+    print(read_file("hotel_new_basic_info.yaml"))
+    print(read_file("hotel_mod_basic_info.yaml"))

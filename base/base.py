@@ -10,7 +10,7 @@
 from time import sleep
 
 import allure
-from selenium.webdriver import ActionChains
+from selenium.webdriver import ActionChains, Keys
 from selenium.webdriver.support.wait import WebDriverWait
 
 from tools.get_log import GetLogger
@@ -87,3 +87,13 @@ class Base:
         # 切换至系统主窗口
         main_window = self.driver.switch_to.window(all_handles[-1])
         return main_window
+
+    def base_scroll_bar(self, loc):
+        # 鼠标移入编辑按钮并点击
+        ActionChains.move_to_element(loc).perform()
+        self.base_click(loc)
+
+        # 模拟鼠标滚动键滚动至列表底部
+
+        # js = "var q=document.getElementsByClassName('table-content')[0].scrollTop=1000"
+        # self.driver.execute_script(js)

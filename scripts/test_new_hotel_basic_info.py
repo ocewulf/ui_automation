@@ -30,6 +30,7 @@ class TestNewHotelBasicInfo:
         # 获取PageSysMenu对象，并调用page_sys_menu方法进入主界面
         sleep(3)
         self.menu = self.page_in.page_get_page_sysmenu()
+        #
         sleep(3)
         self.survey = self.page_in.page_get_page_new_hotel_info()
         sleep(2)
@@ -48,7 +49,7 @@ class TestNewHotelBasicInfo:
         "bathroom_clean_t, bathroom_clean_h, toilet_clean_t, toilet_clean_h, clean_t, investigate, review, "
         "input_date, expected")
 
-    @pytest.mark.parametrize(input_value, read_file("hotel_basic_survy.yaml"))
+    @pytest.mark.parametrize(input_value, read_file("hotel_new_basic_info.yaml"))
     @pytest.mark.run(order=3)
     def test_hotel_basic_info(self, id, batch, place, address, opentime, roomarea, roomnum, flow, staffs,
                               staff_one_year, decro_time,

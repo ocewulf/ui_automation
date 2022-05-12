@@ -48,7 +48,7 @@ healthy_hazard_btn = (By.XPATH, "//*[@id='app']//span[text()=('健康危害因�
 add_btn = (By.XPATH, "//span[text()='新增']")
 edit_btn = (By.XPATH, "//table/tbody/tr[8]/td[10]/div/div/a[1]")
 survey_num = (By.XPATH, "//table/tbody/tr[8]/td[8]/div/div")
-
+table = (By.XPATH, "//*[@id='app']/section/section/main/div/div[1]/div/div[2]/div/div[2]/div[2]/div[1]/div/div[3]")
 """
 宾馆（酒店）基本情况调查表
 """
