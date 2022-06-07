@@ -30,11 +30,8 @@ class TestNewHotelBasicInfo:
         # 获取PageSysMenu对象，并调用page_sys_menu方法进入主界面
         sleep(3)
         self.menu = self.page_in.page_get_page_sysmenu()
-        #
         sleep(3)
         self.survey = self.page_in.page_get_page_new_hotel_info()
-        sleep(2)
-        self.basicinfo = self.page_in.page_get_page_hotel_info()
 
     # 结束
     # def teardown_class(self):
@@ -84,14 +81,15 @@ class TestNewHotelBasicInfo:
         print(result)
         assert result[0] == id
         # 界面断言
-        print("\n 获取的问卷编号是：", self.basicinfo.page_get_survey_num())
+        print("\n 获取的问卷编号是：", self.survey.page_get_survy_no(id))
         try:
-            assert expected == self.basicinfo.page_get_survey_num()
+            assert expected == self.survey.page_get_survy_no(id)
+            print(expected)
         except Exception as e:
             log.error("验证失败，错误信息：{}".format(e))
             # 输出错误信息
             print("错误信息：", e)
             # 截图
-            self.basicinfo.base_get_img()
+            self.survey.base_get_img()
             # 抛出异常
             raise

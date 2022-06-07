@@ -46,9 +46,16 @@ healthy_hazard_btn = (By.XPATH, "//*[@id='app']//span[text()=('健康危害因�
 宾馆基本情况表
 """
 add_btn = (By.XPATH, "//span[text()='新增']")
-edit_btn = (By.XPATH, "//table/tbody/tr[8]/td[10]/div/div/a[1]")
-survey_num = (By.XPATH, "//table/tbody/tr[8]/td[8]/div/div")
-table = (By.XPATH, "//*[@id='app']/section/section/main/div/div[1]/div/div[2]/div/div[2]/div[2]/div[1]/div/div[3]")
+edit_btn = (By.XPATH, ".//a/span[text()='编辑']")
+del_btn = By.XPATH, ".//a/span[text()='删除']"
+confirm_btn = By.XPATH, "/html/body/div[2]/div/div[3]/button[2]/span"
+table_side = (By.XPATH, "//*[@id='app']/section/section/main/div/div[1]/div/div[2]/div/div[2]/div[2]/div[1]/div/div["
+                        "5]/div[2]/table")
+tr_list = (By.TAG_NAME, "tr")
+td_list = (By.TAG_NAME, "td")
+section = (By.XPATH, "//*[@id='app']/section")
+table = (By.XPATH, "//*[@id='app']/section/section/main/div/div[1]/div/div[2]/div/div[2]/div[2]/div["
+                   "1]/div/div[3]/table")
 """
 宾馆（酒店）基本情况调查表
 """
@@ -159,25 +166,25 @@ healthy_check_frequency = (By.XPATH, "//form/div[2]/div[2]/div[2]/div[18]/h4/div
 healthy_check_no = (By.XPATH, "//form/div[2]/div[2]/div[2]/div[17]/div/label[1]")
 # 2.5.1有专门负责传染病防控的人员
 disease_staff_yes = (By.XPATH, "//form/div[2]/div[2]/div[2]/div[20]/div/label[2]")
-disease_staff_no = (By.XPATH, "//form/div[2]/div[2]/div[2]/div[20]/div/label[1]")
+disease_staff_no = (By.XPATH, "//form/div[2]/div[2]/div[2]/div[9]/div/label[1]")
 # 2.5.2 建立疫情应急工作预案
 epidemic_solution_yes = (By.XPATH, "//form/div[2]/div[2]/div[2]/div[21]/div/label[2]")
-epidemic_solution_no = (By.XPATH, "//form/div[2]/div[2]/div[2]/div[21]/div/label[1]")
+epidemic_solution_no = (By.XPATH, "//form/div[2]/div[2]/div[2]/div[10]/div/label[1]")
 # 2.5.3 建立员工健康监测制度
 monitor_system_yes = (By.XPATH, "//form/div[2]/div[2]/div[2]/div[22]/div/label[2]")
-monitor_system_no = (By.XPATH, "//form/div[2]/div[2]/div[2]/div[22]/div/label[1]")
+monitor_system_no = (By.XPATH, "//form/div[2]/div[2]/div[2]/div[11]/div/label[1]")
 # 2.5.4 对员工进行传染病防护技能培训
 disease_control_yes = (By.XPATH, "//form/div[2]/div[2]/div[2]/div[23]/div/label[2]")
-disease_control_no = (By.XPATH, "//form/div[2]/div[2]/div[2]/div[23]/div/label[1]")
+disease_control_no = (By.XPATH, "//form/div[2]/div[2]/div[2]/div[12]/div/label[1]")
 # 2.5.5 复工或营业前进行预防性消毒
 disinfect_yes = (By.XPATH, "//form/div[2]/div[2]/div[2]/div[24]/div/label[2]")
-disinfect_no = (By.XPATH, "//form/div[2]/div[2]/div[2]/div[24]/div/label[1]")
+disinfect_no = (By.XPATH, "//form/div[2]/div[2]/div[2]/div[13]/div/label[1]")
 # 2.5.6 场所内洗手设施运行正常
 facility_run_yes = (By.XPATH, "//form/div[2]/div[2]/div[2]/div[25]/div/label[2]")
-facility_run_no = (By.XPATH, "//form/div[2]/div[2]/div[2]/div[25]/div/label[1]")
+facility_run_no = (By.XPATH, "//form/div[2]/div[2]/div[2]/div[14]/div/label[1]")
 # 2.5.7 设立疑似传染病人应急隔离区域
 quarantine_area_yes = (By.XPATH, "//form/div[2]/div[2]/div[2]/div[26]/div/label[2]")
-quarantine_area_no = (By.XPATH, "//form/div[2]/div[2]/div[2]/div[26]/div/label[1]")
+quarantine_area_no = (By.XPATH, "//form/div[2]/div[2]/div[2]/div[15]/div/label[1]")
 # 2.5.8 场所内是否配备下列物资？（可多选）
 thermometer = (By.XPATH, "//span[text()='额温枪等测温设备']")
 mask = (By.XPATH, "//span[text()='口罩']")
@@ -231,7 +238,7 @@ air_from_stairway = (By.XPATH, "//span[text()='楼道']")
 air_from_roof = (By.XPATH, "//span[text()='天棚吊顶']")
 air_from_outside = (By.XPATH, "//span[text()='室外']")
 air_from_other = (By.XPATH, "//form/div[2]/div[3]/div[2]/div[13]/div/label[5]/span[2]")
-air_other_text = (By.XPATH,"//form/div[2]/div[3]/div[2]/div[13]/div/label[5]/span[2]/div/input")
+air_other_text = (By.XPATH, "//form/div[2]/div[3]/div[2]/div[13]/div/label[5]/span[2]/div/input")
 # 3.5.1-1 新风口下缘距室外地坪垂直距离为
 outside_h_distance = (By.XPATH, "//form/div[2]/div[3]/div[2]/div[14]/h4/div[1]/div/input")
 # 3.5.1-2 新风口下缘距排风垂直距离为

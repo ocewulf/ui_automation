@@ -11,6 +11,7 @@ from time import sleep
 
 import allure
 from selenium.webdriver import ActionChains, Keys
+from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 
 from tools.get_log import GetLogger
@@ -35,6 +36,17 @@ class Base:
         """
         log.info("正在查找元素：{}".format(loc))
         return WebDriverWait(self.driver, timeout=timeout, poll_frequency=poll).until(lambda x: x.find_element(*loc))
+
+    # 查找方法
+    def base_find_elements(self, loc, timeout=30, poll=0.5):
+        """
+        :param loc: 格式为列表或元组，内容：元素定位信息使用By类
+        :param timeout: 查找元素超时时间，默认30s
+        :param poll:查找元素频率，默认0.5s
+        :return:元素
+        """
+        log.info("正在查找元素：{}".format(loc))
+        return WebDriverWait(self.driver, timeout=timeout, poll_frequency=poll).until(lambda x: x.find_elements(*loc))
 
     # 输入方法
     def base_input(self, loc, value):
@@ -88,12 +100,64 @@ class Base:
         main_window = self.driver.switch_to.window(all_handles[-1])
         return main_window
 
-    def base_scroll_bar(self, loc):
+    # 鼠标移入某元素
+    def base_move_to_ele(self, loc):
         # 鼠标移入编辑按钮并点击
-        ActionChains.move_to_element(loc).perform()
+        ele = self.base_find(loc)
+        ActionChains(self.driver).move_to_element(ele).perform()
+
+    # 确认提示框
+    def base_confirm(self, loc):
         self.base_click(loc)
+        # confirm = self.driver.switch_to.alert()
+        # print(confirm.text)
+        # sleep(1)
+        # confirm.accept()
+        # confirm.dismiss()
 
-        # 模拟鼠标滚动键滚动至列表底部
+    # 解析table_content获取下面的tr列表
+    def base_get_tr(self, loc):
+        table = self.base_find(loc)
+        tr_list = table.find_elements(By.TAG_NAME, "tr")
+        return tr_list
 
-        # js = "var q=document.getElementsByClassName('table-content')[0].scrollTop=1000"
-        # self.driver.execute_script(js)
+    # 获取列表全部数据
+    def base_get_table_data(self, loc):
+        list_1 = []
+        list_2 = []
+        # 按tr标签定位获取行数
+        tr_list = self.base_get_tr(loc)
+        # 按行查询表格的数据，取出的数据是一整行
+        for tr in tr_list:
+            # tr.text获取表格每行的文本内容，切割字符串
+            list_2 = tr.text.split()
+            # 将返回的文本值列表添加进list2，组合成一个二维列表
+            list_1.append(list_2)
+        # 以二维列表返回所有文本值
+        return list_1
+
+    # 定位并返回要操作的行记录
+    def base_find_row(self, loc):
+        # 调用获取表格数据函数，获取其列表的返回值信息
+        arr_data = self.base_get_table_data(loc)
+        for i in range(len(arr_data)):
+            for j in range(len(arr_data[i])):
+                if arr_data[i][j] == "2022051701M":
+                    print("存在要操作的记录")
+                    print("坐标/位置为(%r, %r)" % (i + 1, j + 1))
+                    return i
+
+    # 解析side_table获取下面的tr列表
+    def base_get_tr_side(self, loc, side_table):
+        i = self.base_find_row(loc)
+        table = self.base_find(side_table)
+        tr_list = table.find_elements(By.TAG_NAME, "tr")
+        return tr_list[i]
+
+    # 定位要操作的行记录按钮并点击
+    def base_click_btn(self, loc, side_table):
+        self.base_get_tr_side(loc, side_table)
+        # 通过定位的tr行记录查找到操作按钮并点击
+        self.base_get_tr_side(loc, side_table).find_element(By.XPATH, ".//a/span[text()='编辑']").click()
+        # ActionChains(self.driver).move_to_element(btn).perform()
+        # self.base_click()

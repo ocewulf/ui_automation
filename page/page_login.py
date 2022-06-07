@@ -48,7 +48,7 @@ class PageLogin(Base):
         self.page_click_login_btn()
 
     # 组合业务方法 -> 进入子系统依赖方法
-    def page_login_success(self, username="hn_ggcs001", pwd="Abcd1234"):
+    def page_login_success(self, username="hn_xiaomeng", pwd="Abcd1234"):
         log.info("正在进行登录操作，用户名：{}，密码：{}".format(username, pwd))
         self.page_input_username(username)
         self.page_input_pwd(pwd)

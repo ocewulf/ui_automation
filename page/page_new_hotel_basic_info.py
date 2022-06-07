@@ -252,9 +252,17 @@ class PageNewHotelBasicInfo(Base):
 
         self.base_input(page.fill_date, input_date)
 
-        # 点击保存，保存调查表
+    # 点击保存，保存调查表
     def page_save(self):
         self.base_click(page.save_button)
+
+    # 获取问卷编号
+    def page_get_survy_no(self, id):
+        tds = self.base_find_elements(page.td_list)
+        for td in tds:
+            text = td.text
+            if text == id:
+                return text
 
         # 组合业务方法
     def page_complete_survey(self, id, batch, place, address, opentime, roomarea, roomnum, flow, staffs,

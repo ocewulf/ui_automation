@@ -6,8 +6,7 @@
 @Modify Time: 2022/4/2 9:11 
 """
 from time import sleep
-
-from selenium.webdriver import ActionChains
+from selenium.webdriver.common.by import By
 
 from base.base import Base
 import page
@@ -25,13 +24,9 @@ class PageModifyHotelBasicInfo(Base):
     def page_click_hazard_btn(self):
         self.base_click(page.healthy_hazard_btn)
 
-    # 拖动滚动条至底部
-    def page_drage_scrollbar(self):
-        self.base_scroll_bar(page.table)
-
-    # 定位要修改的调查表记录并点击编辑按钮
+    # 定位要操作的行记录并点击操作按钮
     def page_click_editor(self):
-        self.base_click(page.edit_btn)
+        self.base_click_btn(page.table, page.table_side)
 
     # 弹出的修改界面修改调查表信息
     def page_modify_header(self, id, batch):
@@ -83,20 +78,20 @@ class PageModifyHotelBasicInfo(Base):
     def page_modify_healty(self, bill_no, healthy_check):
         self.base_click(page.hygiene_archived_no)
         self.base_click(page.air_detect_no)
-        self.base_click(page.climate_detect_no)
-        self.base_click(page.water_detect_no)
-        self.base_click(page.lighting_detect_no)
-        self.base_click(page.noise_detect_no)
-        self.base_click(page.accessories_change_no)
-        self.base_click(page.accessories_detect_no)
-        self.base_click(page.aircon_detect_no)
-        self.base_click(page.ventilation_detect_no)
+        # self.base_click(page.climate_detect_no)
+        # self.base_click(page.water_detect_no)
+        # self.base_click(page.lighting_detect_no)
+        # self.base_click(page.noise_detect_no)
+        # self.base_click(page.accessories_change_no)
+        # self.base_click(page.accessories_detect_no)
+        # self.base_click(page.aircon_detect_no)
+        # self.base_click(page.ventilation_detect_no)
         # self.base_click(page.lab)
-        # self.base_click(page.sanitary_man_yes)
+        self.base_click(page.sanitary_man_no)
         # self.base_click(page.sanitary_man_fulltime)
-        #
+
         # self.base_input(page.clean_bill_no, bill_no)
-        #
+
         # self.base_click(page.healthy_check_yes)
         # self.base_input(page.healthy_check_frequency, healthy_check)
 
@@ -116,22 +111,22 @@ class PageModifyHotelBasicInfo(Base):
 
     # 三 集中空调卫生状况
     def page_modify_aircondition(self, tow_run_time, tow_h_distance, tow_v_distance, outside_distance, ventil_distance,
-                               aircon_clean_times, aircon_clean_date):
+                                 aircon_clean_times, aircon_clean_date):
         self.base_click(page.airconditon_no)
         # self.base_click(page.airconditon_type1)
-        self.base_click(page.device1_no)
-        self.base_click(page.device2_no)
-        self.base_click(page.area_control_no)
-        self.base_click(page.draught_no)
-        self.base_click(page.airpurified_no)
-        self.base_click(page.cooling_tower_no)
+        # self.base_click(page.device1_no)
+        # self.base_click(page.device2_no)
+        # self.base_click(page.area_control_no)
+        # self.base_click(page.draught_no)
+        # self.base_click(page.airpurified_no)
+        # self.base_click(page.cooling_tower_no)
         # self.base_input(page.tower_run_time, tow_run_time)
         #
         # self.base_input(page.tower_h_distance, tow_h_distance)
         #
         # self.base_input(page.tower_v_distance, tow_v_distance)
 
-        self.base_click(page.assembly_no)
+        # self.base_click(page.assembly_no)
         # self.base_click(page.air_from_room)
         # self.base_click(page.air_from_stairway)
         # self.base_click(page.air_from_roof)
@@ -154,9 +149,9 @@ class PageModifyHotelBasicInfo(Base):
 
     # 四、常态化情景下卫生消毒情况
     def page_modify_disinfectants(self, but_clean_t, but_clean_h, handr_clean_t, handr_clean_h, door_clean_t,
-                                door_clean_h, close_clean_t, close_clean_h, counter_clean_t, counter_clean_h,
-                                desk_clean_t, desk_clean_h, bathroom_clean_t, bathroom_clean_h, toilet_clean_t,
-                                toilet_clean_h):
+                                  door_clean_h, close_clean_t, close_clean_h, counter_clean_t, counter_clean_h,
+                                  desk_clean_t, desk_clean_h, bathroom_clean_t, bathroom_clean_h, toilet_clean_t,
+                                  toilet_clean_h):
         # self.base_click(page.bed_change_customer)
         # self.base_click(page.towel_change_customer)
         # self.base_click(page.slipper_change_customer)
@@ -247,40 +242,47 @@ class PageModifyHotelBasicInfo(Base):
 
         self.base_input(page.fill_date, input_date)
 
-        # 点击保存，保存调查表
+    # 点击保存，保存调查表
     def page_save(self):
         self.base_click(page.save_button)
 
+    # 获取问卷编号
+    def page_get_survy_no(self, id):
+        tds = self.base_find_elements(page.td_list)
+        for td in tds:
+            text = td.text
+            if text == id:
+                return text
+
         # 组合业务方法
+
     def page_modify_survey(self, id, batch, place, address, opentime, roomarea, roomnum, flow, staffs,
-                             staff_one_year, decro_time, bill_no, healthy_check, tow_run_time, tow_h_distance,
-                             tow_v_distance, outside_distance, ventil_distance, aircon_clean_times, aircon_clean_date,
-                             but_clean_t, but_clean_h, handr_clean_t, handr_clean_h, door_clean_t, door_clean_h,
-                             close_clean_t, close_clean_h, counter_clean_t, counter_clean_h,desk_clean_t, desk_clean_h,
-                             bathroom_clean_t, bathroom_clean_h, toilet_clean_t, toilet_clean_h, clean_t, investigate,
-                             review, input_date, expected):
+                           staff_one_year, decro_time, bill_no, healthy_check, tow_run_time, tow_h_distance,
+                           tow_v_distance, outside_distance, ventil_distance, aircon_clean_times, aircon_clean_date,
+                           but_clean_t, but_clean_h, handr_clean_t, handr_clean_h, door_clean_t, door_clean_h,
+                           close_clean_t, close_clean_h, counter_clean_t, counter_clean_h, desk_clean_t, desk_clean_h,
+                           bathroom_clean_t, bathroom_clean_h, toilet_clean_t, toilet_clean_h, clean_t, investigate,
+                           review, input_date, expected):
         # 点击菜单栏菜单，进入宾馆（酒店）主页
         sleep(1)
         self.page_click_menubar()
         # 点击健康危害因素管理按钮进入宾馆基本情况表界面
         sleep(1)
         self.page_click_hazard_btn()
-        # 滑动垂直滚动条至列表底部
-        sleep(1)
-        self.page_drage_scrollbar()
         # 点击修改按钮，打开调查表修改界面
-        sleep(1)
+        sleep(2)
         self.page_click_editor()
         # 填写调查表
+        sleep(2)
         self.page_modify_header(id, batch)
         self.page_modify_basic(place, address, opentime, roomarea, roomnum, flow, staffs, staff_one_year, decro_time)
         self.page_modify_healty(bill_no, healthy_check)
         self.page_modify_aircondition(tow_run_time, tow_h_distance, tow_v_distance, outside_distance, ventil_distance,
-                               aircon_clean_times, aircon_clean_date)
+                                      aircon_clean_times, aircon_clean_date)
         self.page_modify_disinfectants(but_clean_t, but_clean_h, handr_clean_t, handr_clean_h, door_clean_t,
-                                door_clean_h, close_clean_t, close_clean_h, counter_clean_t, counter_clean_h,
-                                desk_clean_t, desk_clean_h, bathroom_clean_t, bathroom_clean_h, toilet_clean_t,
-                                toilet_clean_h)
+                                       door_clean_h, close_clean_t, close_clean_h, counter_clean_t, counter_clean_h,
+                                       desk_clean_t, desk_clean_h, bathroom_clean_t, bathroom_clean_h, toilet_clean_t,
+                                       toilet_clean_h)
         self.page_modify_environment(clean_t)
         self.page_modify_tail(investigate, review, input_date)
 

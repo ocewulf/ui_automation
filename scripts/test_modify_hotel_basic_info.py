@@ -76,6 +76,9 @@ class TestModifyHotelBasicInfo():
         sleep(2)
 
         # 数据库断言
-        sql = "select code from T_BASIC_INFO_HOTEL where base_place_name = '%s'" % place
+        sql = "select code from T_BASE_INFO_HOTEL where base_place_name = '%s'" % place
         result = ReadDB().get_sql_one(sql)
         assert result[0] == id
+        # 界面断言
+        assert expected == self.pagemodinfo.page_get_survy_no(id)
+        print(expected)

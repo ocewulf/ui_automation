@@ -7,7 +7,7 @@
 ------------      -------    --------    -----------
 2022/2/22 17:22   ocewulf      1.0         None
 """
-from page.page_hotel_basic_info import PageHotelBasicInfo
+from page.page_delete_basic_hotel_info import PageDelBasicHotInfo
 from page.page_modify_hotel_basic_info import PageModifyHotelBasicInfo
 from page.page_new_hotel_basic_info import PageNewHotelBasicInfo
 from page.page_login import PageLogin
@@ -34,6 +34,6 @@ class PageIn:
     def page_get_page_mod_hotel_info(self):
         return PageModifyHotelBasicInfo(self.driver)
 
-    # 获取PageHotelBasicInfo对象
-    def page_get_page_hotel_info(self):
-        return PageHotelBasicInfo(self.driver)
+    # 获取PageDelBasicHotInfo对象
+    def page_get_page_del_hotel_info(self):
+        return PageDelBasicHotInfo(self.driver)
