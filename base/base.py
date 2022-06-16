@@ -106,6 +106,23 @@ class Base:
         ele = self.base_find(loc)
         ActionChains(self.driver).move_to_element(ele).perform()
 
+    # 判断页面是否存在指定元素
+    def base_elem_is_exist(self, text):
+        # 组装元素配置信息
+        loc = By.XPATH, "//*[text()='{}']".format(text)
+        # 找元素
+        try:
+            # 找元素
+            self.base_find(loc, timeout=3)
+            # 输出找到元素信息
+            print("成功找到元素:{}".format(loc))
+            # 返回True
+            return True
+        except:
+            # 输出未找到元素
+            print("没有找到元素:{}".format(loc))
+            return False
+
     # 确认提示框
     def base_confirm(self, loc):
         self.base_click(loc)
@@ -117,6 +134,10 @@ class Base:
 
     # 解析table_content获取下面的tr列表
     def base_get_tr(self, loc):
+        """
+        :param loc: 格式为列表或元组，内容：列表中间内容表的定位信息
+        :return: 返回的列表中间内容表的行记录
+        """
         table = self.base_find(loc)
         tr_list = table.find_elements(By.TAG_NAME, "tr")
         return tr_list
@@ -137,27 +158,32 @@ class Base:
         return list_1
 
     # 定位并返回要操作的行记录
-    def base_find_row(self, loc):
+    def base_find_row(self, loc, orgin_id):
         # 调用获取表格数据函数，获取其列表的返回值信息
         arr_data = self.base_get_table_data(loc)
         for i in range(len(arr_data)):
             for j in range(len(arr_data[i])):
-                if arr_data[i][j] == "2022051701M":
+                if arr_data[i][j] == orgin_id:
                     print("存在要操作的记录")
                     print("坐标/位置为(%r, %r)" % (i + 1, j + 1))
                     return i
 
     # 解析side_table获取下面的tr列表
-    def base_get_tr_side(self, loc, side_table):
-        i = self.base_find_row(loc)
+    def base_get_tr_side(self, loc, orgin_id, side_table):
+        """
+        :param loc:格式为列表或元组，内容：列表中间内容表的定位信息
+        :param orgin_id:原监测编号
+        :param side_table:列表侧边表格
+        :return:
+        """
+        i = self.base_find_row(loc, orgin_id)
         table = self.base_find(side_table)
         tr_list = table.find_elements(By.TAG_NAME, "tr")
         return tr_list[i]
 
     # 定位要操作的行记录按钮并点击
-    def base_click_btn(self, loc, side_table):
-        self.base_get_tr_side(loc, side_table)
+    def base_click_btn(self, loc, orgin_id, rside_table):
         # 通过定位的tr行记录查找到操作按钮并点击
-        self.base_get_tr_side(loc, side_table).find_element(By.XPATH, ".//a/span[text()='编辑']").click()
+        self.base_get_tr_side(loc, orgin_id, rside_table).find_element(By.XPATH, ".//a/span[text()='编辑']").click()
         # ActionChains(self.driver).move_to_element(btn).perform()
         # self.base_click()

@@ -11,6 +11,7 @@ from page.page_delete_basic_hotel_info import PageDelBasicHotInfo
 from page.page_modify_hotel_basic_info import PageModifyHotelBasicInfo
 from page.page_new_hotel_basic_info import PageNewHotelBasicInfo
 from page.page_login import PageLogin
+from page.page_submit_hotel_basic_info import PageSubmit
 from page.page_sys_menu import PageSysMenu
 
 
@@ -37,3 +38,7 @@ class PageIn:
     # 获取PageDelBasicHotInfo对象
     def page_get_page_del_hotel_info(self):
         return PageDelBasicHotInfo(self.driver)
+
+    # 获取PageSubmit对象
+    def page_get_page_submit(self):
+        return PageSubmit(self.driver)

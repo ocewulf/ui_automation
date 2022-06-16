@@ -43,21 +43,35 @@ hotel_menu = (By.XPATH, "//*[@id='app']/section/section/aside/div/ul/div[1]/li/u
 healthy_hazard_btn = (By.XPATH, "//*[@id='app']//span[text()=('健康危害因素调查管理')]")
 
 """
-宾馆基本情况表
+宾馆基本情况列表
 """
+# 查询栏
+data_status = (By.XPATH, "//*[@id='app']/section/section/main/div/div[1]/div/div[2]/div/div[1]/form/div[4]/div")
+data_status_unsubmit = (By.XPATH, "/html/body/div[2]/div[1]/div[1]/ul/li[1]")
+data_status_sxdsh = (By.XPATH, "/html/body/div[2]/div[1]/div[1]/ul/li[2]")
+questionaire_id = (By.XPATH, "//*/div[@class='ez-input__inner'][6]")
+search_btn = (By.XPATH, "//*/button/span[text()='查询'")
+check_box = (By.XPATH, "//*[@id='app']/*/table/tbody/tr/td[1]/div/label/span/span")
+# 列表页面
 add_btn = (By.XPATH, "//span[text()='新增']")
 edit_btn = (By.XPATH, ".//a/span[text()='编辑']")
 del_btn = By.XPATH, ".//a/span[text()='删除']"
+submit_btn = By.XPATH, "//span[text()='提交']"
 confirm_btn = By.XPATH, "/html/body/div[2]/div/div[3]/button[2]/span"
-table_side = (By.XPATH, "//*[@id='app']/section/section/main/div/div[1]/div/div[2]/div/div[2]/div[2]/div[1]/div/div["
-                        "5]/div[2]/table")
+table_rside = (By.XPATH, "//*[@id='app']/section/section/main/div/div[1]/div/div[2]/div/div[2]/div[2]/div[1]/div/div["
+                         "5]/div[2]/table")
 tr_list = (By.TAG_NAME, "tr")
 td_list = (By.TAG_NAME, "td")
 section = (By.XPATH, "//*[@id='app']/section")
 table = (By.XPATH, "//*[@id='app']/section/section/main/div/div[1]/div/div[2]/div/div[2]/div[2]/div["
                    "1]/div/div[3]/table")
+table_lside = (By.XPATH, "//*[@id='app']/section/section/main/div/div[1]/div/div[2]/div/div[2]/div[2]/div[1]/div/div["
+                         "4]/div[2]/table")
+questionaire_no = (By.XPATH, "/html/body/div[1]/section/section/main/div/div[1]/div/div[2]/div/div[2]/div[2]/div["
+                             "1]/div/div[3]/table/tbody/tr/td[6]/div/div")
+
 """
-宾馆（酒店）基本情况调查表
+宾馆（酒店）基本情况调查表新增页面
 """
 # 表头信息
 number = (By.XPATH, "/html/body/div[3]/div/div[2]/div/form/div[1]/div[1]/div/div/input")

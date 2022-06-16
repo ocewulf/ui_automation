@@ -6,8 +6,6 @@
 @Modify Time: 2022/4/2 9:11 
 """
 from time import sleep
-from selenium.webdriver.common.by import By
-
 from base.base import Base
 import page
 
@@ -25,8 +23,8 @@ class PageModifyHotelBasicInfo(Base):
         self.base_click(page.healthy_hazard_btn)
 
     # 定位要操作的行记录并点击操作按钮
-    def page_click_editor(self):
-        self.base_click_btn(page.table, page.table_side)
+    def page_click_editor(self, orgin_id):
+        self.base_click_btn(page.table, orgin_id, page.table_rside)
 
     # 弹出的修改界面修改调查表信息
     def page_modify_header(self, id, batch):
@@ -262,7 +260,7 @@ class PageModifyHotelBasicInfo(Base):
                            but_clean_t, but_clean_h, handr_clean_t, handr_clean_h, door_clean_t, door_clean_h,
                            close_clean_t, close_clean_h, counter_clean_t, counter_clean_h, desk_clean_t, desk_clean_h,
                            bathroom_clean_t, bathroom_clean_h, toilet_clean_t, toilet_clean_h, clean_t, investigate,
-                           review, input_date, expected):
+                           review, input_date, expected, orgin_id):
         # 点击菜单栏菜单，进入宾馆（酒店）主页
         sleep(1)
         self.page_click_menubar()
@@ -271,7 +269,7 @@ class PageModifyHotelBasicInfo(Base):
         self.page_click_hazard_btn()
         # 点击修改按钮，打开调查表修改界面
         sleep(2)
-        self.page_click_editor()
+        self.page_click_editor(orgin_id)
         # 填写调查表
         sleep(2)
         self.page_modify_header(id, batch)

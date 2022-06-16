@@ -30,7 +30,7 @@ class PageDelBasicHotInfo(Base):
 
     # 定位并点击要删除的行记录的删除按钮
     def page_click_delete(self):
-        self.base_click_delete(page.table, page.tr_list, page.table_side, page.tr_list, page.del_btn)
+        self.base_click_delete(page.table, page.tr_list, page.table_rside, page.tr_list, page.del_btn)
 
     # 定位确认提示框确定按钮并点击
     def page_click_confirm_btn(self):

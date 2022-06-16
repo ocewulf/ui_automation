@@ -78,13 +78,13 @@ class TestNewHotelBasicInfo:
         # 数据库断言新增调查表记录
         sql = "select code from T_BASE_INFO_HOTEL where BASE_PLACE_NAME = '%s'" % place
         result = ReadDB().get_sql_one(sql)
-        print(result)
+        print("数据库查询的记录是:", result)
         assert result[0] == id
+        print("\n 数据库返回的问卷编号与界面新增录入时的编号一致，问卷编号为{}".format(result[0]))
         # 界面断言
-        print("\n 获取的问卷编号是：", self.survey.page_get_survy_no(id))
         try:
             assert expected == self.survey.page_get_survy_no(id)
-            print(expected)
+            print("期望问卷编号值与实际界面记录显示的问卷编号值一致，测试通过")
         except Exception as e:
             log.error("验证失败，错误信息：{}".format(e))
             # 输出错误信息

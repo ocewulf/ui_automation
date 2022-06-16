@@ -103,7 +103,7 @@ class ReadDB:
             self.conn.rollback()
         except Exception as e:
             self.conn.rollback()
-            print("update_sql:", e)
+            print("delete_sql:", e)
             self.close_cur(curs)
             self.close_conn()
             return res
@@ -116,7 +116,7 @@ class ReadDB:
             curs.execute(sql)
             res = curs.fetchone()
         except Exception as e:
-            print("update_sql:", e)
+            print("query_sql:", e)
             self.close_cur(curs)
             self.close_conn()
             return res

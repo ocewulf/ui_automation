@@ -1,0 +1,3 @@
+test_submit_survey001:
+   target_id: "2022061001"
+   expected_status: "已提交"

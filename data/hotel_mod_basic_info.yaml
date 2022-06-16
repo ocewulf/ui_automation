@@ -40,3 +40,4 @@ test_survey002:
    review: "黄磊"
    input_date: "2022-05-17"
    expected: "2022051701M"
+   orgin_id: "2022051701M"

@@ -6,9 +6,6 @@
 @Modify Time: 2022/4/2 9:11 
 """
 from time import sleep
-
-from selenium.webdriver import ActionChains
-
 from base.base import Base
 import page
 
