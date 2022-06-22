@@ -12,6 +12,8 @@ from base.base import Base
 
 
 class PageSubmit(Base):
+    # 问卷编号
+    questionaire_id = None
     # 点击菜单
     def page_click_menubar(self):
         # 点击一级菜单-数据信息
@@ -31,7 +33,7 @@ class PageSubmit(Base):
 
     # 输入问卷编号
     def page_input_id(self, target_id):
-        self.base_input(page.questionaire_id, target_id)
+        self.base_input(page.query_id, target_id)
 
     # 点击查询
     def page_click_search(self):
@@ -55,14 +57,15 @@ class PageSubmit(Base):
         self.page_click_menubar()
         sleep(1)
         self.page_click_harzard_btn()
-        sleep(2)
+        sleep(3)
         self.page_click_status()
         sleep(1)
         self.page_input_id(target_id)
         sleep(1)
         self.page_click_search()
         sleep(1)
-        self.page_get_number()
+        self.questionaire_id = self.page_get_number()
+        print("获取的问卷编号为：", self.questionaire_id)
         sleep(1)
         self.page_check_record()
         sleep(1)
@@ -70,8 +73,8 @@ class PageSubmit(Base):
         sleep(2)
 
     # 组装断言业务方法
-    def page_assert_submit(self, text):
-        # 修改数据状态为“审核通过”
+    def page_assert_submit(self):
+        # 修改数据状态为"审核通过"
         self.base_click(page.data_status)
         self.base_click(page.data_status_sxdsh)
         # 点击查询
@@ -79,4 +82,4 @@ class PageSubmit(Base):
         # 获取问卷编号
         self.page_get_number()
         # 判断页面是否存在指定的问卷编号 并返回结果
-        self.base_elem_is_exist()
+        self.base_elem_is_exist(self.questionaire_id)

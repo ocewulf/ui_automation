@@ -17,8 +17,11 @@ class GetDriver:
     def get_web_driver(cls, url):
         # 判断driver是否为空
         if cls.__web_driver is None:
+            # 打开浏览器时使用本地的用户设置和缓存
+            option = webdriver.ChromeOptions()
+            option.add_argument(r"--user-data-dir=C:\Users\Admin\AppData\Local\Google\Chrome\User Data\Default")
             # 初始化浏览器
-            cls.__web_driver = webdriver.Chrome()
+            cls.__web_driver = webdriver.Chrome(options=option)
             # 最大化浏览器
             cls.__web_driver.maximize_window()
             # 打开url

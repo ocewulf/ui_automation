@@ -7,6 +7,7 @@
 ------------      -------    --------    -----------
 2022/2/22 17:22   ocewulf      1.0         None
 """
+from page.page_audit_hotel_basic_info import PageAuditHotelBasicInfo
 from page.page_delete_basic_hotel_info import PageDelBasicHotInfo
 from page.page_modify_hotel_basic_info import PageModifyHotelBasicInfo
 from page.page_new_hotel_basic_info import PageNewHotelBasicInfo
@@ -42,3 +43,7 @@ class PageIn:
     # 获取PageSubmit对象
     def page_get_page_submit(self):
         return PageSubmit(self.driver)
+
+    # 获取PageAuditHotelBasicInfo对象
+    def page_get_page_audit(self):
+        return PageAuditHotelBasicInfo(self.driver)

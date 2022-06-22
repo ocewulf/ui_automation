@@ -27,8 +27,10 @@ class TestDelHotBasicInfo:
     #     # 关闭driver
     #     GetDriver().quit_web_driver()
 
-    def test_del_hot_info(self):
-        # 调用page_sys_menu组合方法进入首页
+    def test_del_hot_info(self, target_id):
+        # 调用PageSysMenu对象的page_sys_menu业务组合方法进入宾馆主界面
         self.menu.page_sys_menu()
-        # 调用page_del_basic_hotel_info方法删除调查表记录
-        self.del_hotel_info.page_del_basic_hotel_info()
+        # 调用page_del_basic_hotel_info业务组合方法删除调查表记录
+        self.del_hotel_info.page_del_basic_hotel_info(target_id)
+        # 界面断言：验证列表是否存在指定问卷编号的记录
+        self.submit.page_assert_submit()

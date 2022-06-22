@@ -27,7 +27,7 @@ class TestModifyHotelBasicInfo:
         # 获取PageSysMenu对象进入主界面
         self.menu = self.pagein.page_get_page_sysmenu()
         # 获取PageModifyHotelBasicInfo
-        self.pagemodinfo = self.pagein.page_get_page_mod_hotel_info()
+        self.page_del = self.pagein.page_get_page_mod_hotel_info()
 
     # def teardown_class(self):
     #     # 关闭driver

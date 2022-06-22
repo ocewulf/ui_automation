@@ -33,9 +33,9 @@ class TestModifyHotelBasicInfo:
         #     # 关闭driver
         #     GetDriver().quit_web_driver()
 
-    @pytest.mark.parametrize("target_id, expected_status", read_file("hotel_submit_basic_info.yaml"))
+    @pytest.mark.parametrize("target_id", read_file("hotel_submit_basic_info.yaml"))
     @pytest.mark.run(order=5)
-    def test_submit_hotel_basic_info(self, target_id, expected_status):
+    def test_submit_hotel_basic_info(self, target_id):
         # 调用PageSysMenu对象的page_sys_menu业务组合方法进入宾馆主界面
         self.menu.page_sys_menu()
         # 调用PageSubmit的page_submit提交调查表
@@ -48,5 +48,4 @@ class TestModifyHotelBasicInfo:
         assert result[0] == 2
         print("\n 数据库返回的数据状态为{}".format(result[0]))
         # 界面断言：验证市县待审核列表是否存在指定问卷编号的记录
-        assert expected_status == True
-        print("问卷编号为{}.format(target_id)的状态为'已提交'")
+        self.submit.page_assert_submit()

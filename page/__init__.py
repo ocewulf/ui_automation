@@ -49,14 +49,16 @@ healthy_hazard_btn = (By.XPATH, "//*[@id='app']//span[text()=('健康危害因�
 data_status = (By.XPATH, "//*[@id='app']/section/section/main/div/div[1]/div/div[2]/div/div[1]/form/div[4]/div")
 data_status_unsubmit = (By.XPATH, "/html/body/div[2]/div[1]/div[1]/ul/li[1]")
 data_status_sxdsh = (By.XPATH, "/html/body/div[2]/div[1]/div[1]/ul/li[2]")
-questionaire_id = (By.XPATH, "//*/div[@class='ez-input__inner'][6]")
-search_btn = (By.XPATH, "//*/button/span[text()='查询'")
-check_box = (By.XPATH, "//*[@id='app']/*/table/tbody/tr/td[1]/div/label/span/span")
+query_id = (By.XPATH, "//*[@id='app']/section/section/main/div/div[1]/div/div[2]/div/div[1]/form/div["
+                             "6]/div/div/input")
+search_btn = (By.XPATH, "//*[@id='app']/section/section/main/div/div[1]/div/div[2]/div/div[1]/form/div[7]/div/button")
+check_box = (By.XPATH, "/html/body/div/section/section/main/div/div[1]/div/div[2]/div/div[2]/div[2]/div[1]/div/div[4]/div[2]/table/tbody/tr/td[1]/div/label/span/span")
 # 列表页面
 add_btn = (By.XPATH, "//span[text()='新增']")
 edit_btn = (By.XPATH, ".//a/span[text()='编辑']")
 del_btn = By.XPATH, ".//a/span[text()='删除']"
 submit_btn = By.XPATH, "//span[text()='提交']"
+agreed_btn = (By.XPATH, "//span[text()='审批同意']")
 confirm_btn = By.XPATH, "/html/body/div[2]/div/div[3]/button[2]/span"
 table_rside = (By.XPATH, "//*[@id='app']/section/section/main/div/div[1]/div/div[2]/div/div[2]/div[2]/div[1]/div/div["
                          "5]/div[2]/table")
